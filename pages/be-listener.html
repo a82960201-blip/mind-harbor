@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be a Listener - Mind Harbor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/be-listener.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <div class="back-btn" onclick="window.location.href='../index.html'">← Back to Home</div>
+        
+        <div class="header">
+            <h1>People Who Need Your Support</h1>
+            <p class="subtitle">Choose someone you'd like to listen to</p>
+        </div>
+
+        <div class="users-grid" id="usersGrid">
+            <!-- Users will be dynamically loaded here -->
+        </div>
+
+        <div class="no-users" id="noUsers" style="display: none;">
+            <div class="empty-icon">💙</div>
+            <h2>No one waiting right now</h2>
+            <p>Check back in a few minutes</p>
+            <button class="refresh-btn" onclick="loadUsers()">Refresh</button>
+        </div>
+    </div>
+
+    <!-- Socket.io client -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="../js/socket-db.js"></script>
+    <script src="../js/channel.js"></script>
+    <script>
+        // Load currentUser from localStorage
+        const userAccount = localStorage.getItem('userAccount');
+        if (userAccount) {
+            window.currentUser = JSON.parse(userAccount);
+        } else {
+            alert('Please log in first');
+            window.location.href = '../index.html';
+        }
+        
+        // Initialize database connection immediately
+        (async () => {
+            try {
+                await db.init();
+                console.log('Database connected');
+            } catch (error) {
+                console.error('Database connection error:', error);
+            }
+        })();
+    </script>
+    <script src="../js/be-listener.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#1a1a2e">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" type="image/svg+xml" href="favicon-heart.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    
+    <title>Mind Harbor - In Memory</title>
+    <meta name="description" content="Mind Harbor - Anonymous mental health support built in loving memory. Free, safe, and confidential.">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <!-- Email Login Modal (shows on first visit) -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <h1 class="auth-logo">Mind Harbor</h1>
+            <p class="auth-subtitle">In loving memory 💙</p>
+            <p class="auth-text" id="authText">Log in with your email</p>
+            
+            <form id="emailForm">
+                <input 
+                    type="email" 
+                    id="emailInput" 
+                    placeholder="your@email.com" 
+                    required 
+                    autocomplete="email"
+                />
+                <input 
+                    type="password" 
+                    id="passwordInput" 
+                    placeholder="Password" 
+                    required 
+                    autocomplete="current-password"
+                    minlength="6"
+                />
+                <button type="submit" class="auth-btn" id="authBtn">Log In</button>
+                <p class="toggle-text">
+                    Don't have an account? 
+                    <span class="toggle-link" onclick="toggleAuthMode()">Sign Up</span>
+                </p>
+                <p class="forgot-password">
+                    <span class="toggle-link" onclick="showPasswordReset()">Forgot password?</span>
+                </p>
+            </form>
+            <p class="auth-note">Your email and password are securely stored</p>
+        </div>
+    </div>
+
+    <!-- Main Content (shows after login) -->
+    <div class="container" id="mainContent" style="display: none;">
+        <div class="hero">
+            <h1 class="logo">Mind Harbor</h1>
+            <p class="tagline">Your Safe Space for Anonymous Support</p>
+            <p class="username-display">You are: <span id="currentUsername"></span></p>
+            
+            <div class="button-container">
+                <button class="main-btn find-btn" onclick="window.location.href='pages/find-listener.html'">
+                    <span class="btn-icon">🎧</span>
+                    Find a Listener
+                </button>
+                <button class="main-btn be-btn" onclick="window.location.href='pages/be-listener.html'">
+                    <span class="btn-icon">💙</span>
+                    Be a Listener
+                </button>
+                <button class="main-btn chat-btn" onclick="window.location.href='pages/chat-history.html'">
+                    <span class="btn-icon">💬</span>
+                    My Chats
+                </button>
+                <button class="main-btn group-btn" onclick="window.location.href='pages/group-chat.html'">
+                    <span class="btn-icon">👥</span>
+                    Group Chat
+                </button>
+            </div>
+        </div>
+
+        <div class="memorial">
+            <p class="memorial-text">Built in loving memory of a beloved companion who deserved someone to talk to 🐱💙</p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>100% Anonymous</h3>
+                <p>Only your assigned name is visible</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>Messages Saved</h3>
+                <p>Your conversations are preserved</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>Accept/Decline</h3>
+                <p>You choose who you talk to</p>
+            </div>
+        </div>
+
+        <a href="pages/profile.html" class="profile-link">My Profile</a>
+    </div>
+    
+    <!-- Socket.io client -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="js/socket-db.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/tutorial.js"></script>
+</body>
+</html>
+

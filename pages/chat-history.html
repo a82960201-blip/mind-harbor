@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Chats - Mind Harbor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/chat-history.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <div class="back-btn" onclick="window.location.href='../index.html'">← Back to Home</div>
+        
+        <div class="header">
+            <h1>💬 My Chats</h1>
+            <p class="subtitle">Continue your conversations</p>
+        </div>
+
+        <div class="chats-container" id="chatsContainer">
+            <!-- Chats will be loaded here -->
+        </div>
+
+        <div class="no-chats" id="noChats" style="display: none;">
+            <div class="empty-icon">💬</div>
+            <h2>No active chats</h2>
+            <p>Start a conversation to see your chat history here</p>
+            <button class="start-btn" onclick="window.location.href='../index.html'">Start a Chat</button>
+        </div>
+    </div>
+
+    <!-- Socket.io client -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="../js/socket-db.js"></script>
+    <script>
+        // Load currentUser
+        const userAccount = localStorage.getItem('userAccount');
+        if (userAccount) {
+            window.currentUser = JSON.parse(userAccount);
+        } else {
+            alert('Please log in first');
+            window.location.href = '../index.html';
+        }
+        
+        // Initialize database
+        (async () => {
+            try {
+                await db.init();
+                console.log('Database connected');
+            } catch (error) {
+                console.error('Database connection error:', error);
+            }
+        })();
+    </script>
+    <script src="../js/chat-history.js"></script>
+</body>
+</html>

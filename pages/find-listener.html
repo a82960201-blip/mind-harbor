@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Listener - Mind Harbor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/find-listener.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <div class="back-btn" onclick="window.location.href='../index.html'">← Back to Home</div>
+        
+        <div class="form-container" id="infoForm">
+            <h1>Tell Us a Bit About Yourself</h1>
+            <p class="subtitle">This helps match you with the right listener (Still 100% anonymous)</p>
+            
+            <form id="userInfoForm">
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="male" required>
+                            <span>Male</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="female">
+                            <span>Female</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="non-binary">
+                            <span>Non-binary</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="prefer-not-to-say">
+                            <span>Prefer not to say</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Age Category</label>
+                    <select name="age" required>
+                        <option value="">Select age range</option>
+                        <option value="13-17">13-17</option>
+                        <option value="18-24">18-24</option>
+                        <option value="25-34">25-34</option>
+                        <option value="35-44">35-44</option>
+                        <option value="45-54">45-54</option>
+                        <option value="55+">55+</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>What's on your mind? (Optional)</label>
+                    <textarea name="topic" rows="4" placeholder="Briefly describe what you'd like to talk about..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Preferred Listener Type</label>
+                    <select name="listenerPreference">
+                        <option value="any">Any available listener</option>
+                        <option value="similar-age">Similar age group</option>
+                        <option value="experienced">Experienced listeners only</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Find a Listener</button>
+            </form>
+        </div>
+
+        <div class="waiting-container" id="waitingScreen" style="display: none;">
+            <div class="waiting-card">
+                <div class="spinner"></div>
+                <h2>Finding a listener for you...</h2>
+                <p class="waiting-text">This usually takes 1-3 minutes</p>
+                <p class="username-display">Your anonymous ID: <span id="userAnonymousId"></span></p>
+                
+                <div class="notification-option">
+                    <div class="notification-icon">🔔</div>
+                    <p>You can leave this page. We'll notify you when a listener is ready.</p>
+                    <button class="leave-btn" onclick="window.location.href='../index.html'">Leave & Notify Me</button>
+                </div>
+
+                <button class="cancel-btn" onclick="cancelSearch()">Cancel Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket.io client -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="../js/socket-db.js"></script>
+    <script src="../js/channel.js"></script>
+    <script>
+        // Load currentUser from localStorage
+        const userAccount = localStorage.getItem('userAccount');
+        if (userAccount) {
+            window.currentUser = JSON.parse(userAccount);
+        } else {
+            alert('Please log in first');
+            window.location.href = '../index.html';
+        }
+        
+        // Initialize database connection immediately
+        (async () => {
+            try {
+                await db.init();
+                console.log('Database connected');
+            } catch (error) {
+                console.error('Database connection error:', error);
+            }
+        })();
+    </script>
+    <script src="../js/find-listener.js"></script>
+</body>
+</html>

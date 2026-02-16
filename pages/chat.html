@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Mind Harbor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/chat.css">
+    <link rel="stylesheet" href="../css/crisis-modal.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-left">
+                <div class="status-indicator"></div>
+                <div class="chat-info">
+                    <h2 id="chatPartner">Loading...</h2>
+                    <p class="status-text">Connected</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" onclick="showGuidelines()" title="Community Guidelines">📋</button>
+                <button class="icon-btn" onclick="reportUser()" title="Report">🚨</button>
+                <button class="end-btn" onclick="endChat()">End Chat</button>
+            </div>
+        </div>
+
+        <div class="guidelines-banner" id="guidelinesBanner">
+            <div class="banner-content">
+                <div class="cop-icon">👮</div>
+                <div class="banner-text">
+                    <strong>Community Cop Guidelines:</strong>
+                    <ul>
+                        <li>Be respectful and kind</li>
+                        <li>Keep conversations anonymous - no personal info</li>
+                        <li>No harassment, hate speech, or inappropriate content</li>
+                        <li>If you feel unsafe, report immediately</li>
+                        <li>Crisis resources: National Suicide Prevention Lifeline 988</li>
+                    </ul>
+                </div>
+                <button class="close-banner" onclick="closeBanner()">×</button>
+            </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="system-message">
+                <span class="system-icon">🤖</span>
+                <p>Chat started. Remember to follow community guidelines and be respectful.</p>
+            </div>
+        </div>
+
+        <div class="typing-indicator" id="typingIndicator" style="display: none;">
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+            <span class="typing-text" id="typingText">typing...</span>
+        </div>
+
+        <div class="chat-input-container">
+            <form id="messageForm" class="message-form">
+                <textarea 
+                    id="messageInput" 
+                    placeholder="Type your message..." 
+                    rows="1"
+                ></textarea>
+                <button type="submit" class="send-btn" id="sendBtn">
+                    <span class="send-icon">➤</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="guidelinesModal" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h2>Community Guidelines</h2>
+            <div class="guidelines-content">
+                <div class="guideline-item">
+                    <span class="guideline-icon">🤝</span>
+                    <div>
+                        <h3>Be Respectful</h3>
+                        <p>Treat others with kindness and empathy</p>
+                    </div>
+                </div>
+                <div class="guideline-item">
+                    <span class="guideline-icon">🔒</span>
+                    <div>
+                        <h3>Stay Anonymous</h3>
+                        <p>Never share personal information (name, address, phone, social media)</p>
+                    </div>
+                </div>
+                <div class="guideline-item">
+                    <span class="guideline-icon">🚫</span>
+                    <div>
+                        <h3>No Harassment</h3>
+                        <p>Hate speech, bullying, or inappropriate content will result in immediate ban</p>
+                    </div>
+                </div>
+                <div class="guideline-item">
+                    <span class="guideline-icon">🆘</span>
+                    <div>
+                        <h3>Crisis Support</h3>
+                        <p>If you're in crisis: National Suicide Prevention Lifeline 988 or Crisis Text Line (text HOME to 741741)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket.io client -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="../js/socket-db.js"></script>
+    <script src="../js/channel.js"></script>
+    <script src="../js/crisis-detection.js"></script>
+    <script src="../js/report-system.js"></script>
+    <script>
+        // Load currentUser from localStorage
+        const userAccount = localStorage.getItem('userAccount');
+        if (userAccount) {
+            window.currentUser = JSON.parse(userAccount);
+        }
+        
+        // Initialize database connection immediately
+        (async () => {
+            try {
+                await db.init();
+                console.log('Database connected');
+            } catch (error) {
+                console.error('Database connection error:', error);
+            }
+        })();
+    </script>
+    <script src="../js/chat.js"></script>
+</body>
+</html>

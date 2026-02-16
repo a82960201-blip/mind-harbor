@@ -1,0 +1,337 @@
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f1e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.auth-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(79, 195, 247, 0.3);
+    border-radius: 20px;
+    padding: 60px 50px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.auth-logo {
+    font-size: 3em;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+}
+
+.auth-subtitle {
+    color: #a0c4ff;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.auth-text {
+    color: #ffffff;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+#emailForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#emailInput, #passwordInput {
+    width: 100%;
+    padding: 18px 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(79, 195, 247, 0.3);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1.1em;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+#emailInput:focus, #passwordInput:focus {
+    outline: none;
+    border-color: #4fc3f7;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+#emailInput::placeholder, #passwordInput::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.auth-btn {
+    padding: 18px 40px;
+    font-size: 1.2em;
+    font-weight: 600;
+    background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(0, 180, 216, 0.4);
+}
+
+.auth-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 180, 216, 0.6);
+}
+
+.auth-note {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9em;
+    margin-top: 15px;
+}
+
+.toggle-text {
+    color: #a0c4ff;
+    font-size: 0.95em;
+    margin-top: 20px;
+}
+
+.toggle-link {
+    color: #4fc3f7;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.toggle-link:hover {
+    color: #00d4ff;
+}
+
+.error-message {
+    background: rgba(255, 107, 107, 0.2);
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.toggle-text {
+    color: #a0c4ff;
+    font-size: 0.95em;
+    margin-top: 15px;
+}
+
+.toggle-link {
+    color: #4fc3f7;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.toggle-link:hover {
+    color: #00d4ff;
+}
+
+.error-message {
+    background: rgba(255, 107, 107, 0.2);
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.username-display {
+    color: #4fc3f7;
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    padding: 15px 25px;
+    background: rgba(79, 195, 247, 0.1);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.username-display span {
+    font-weight: 700;
+    color: #00d4ff;
+}
+
+.memorial {
+    text-align: center;
+    margin: 40px 0;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(79, 195, 247, 0.2);
+    border-radius: 15px;
+}
+
+.memorial-text {
+    color: #a0c4ff;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Tutorial Overlay */
+.tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    padding: 20px;
+}
+
+.tutorial-content {
+    background: linear-gradient(135deg, #1a1a2e, #0f0f1e);
+    border: 2px solid #4fc3f7;
+    border-radius: 20px;
+    padding: 50px 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.tutorial-icon {
+    font-size: 5em;
+    margin-bottom: 20px;
+}
+
+.tutorial-title {
+    color: #4fc3f7;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.tutorial-text {
+    color: #ffffff;
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.tutorial-dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.tutorial-dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(79, 195, 247, 0.3);
+    border-radius: 50%;
+}
+
+.tutorial-dot.active {
+    background: #4fc3f7;
+}
+
+.tutorial-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #00b4d8, #0077b6);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.tutorial-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.5);
+}
+
+.tutorial-skip {
+    background: none;
+    border: none;
+    color: #a0c4ff;
+    font-size: 0.9em;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.tutorial-skip:hover {
+    color: #4fc3f7;
+}
+
+/* Mobile Auth Optimization */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 40px 30px;
+        width: 95%;
+    }
+    
+    .auth-logo {
+        font-size: 2.5em;
+    }
+    
+    #emailInput,
+    #passwordInput {
+        font-size: 16px; /* Prevents iOS zoom */
+        padding: 16px 18px;
+    }
+    
+    .auth-btn {
+        font-size: 1.1em;
+        padding: 16px 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 30px 20px;
+    }
+    
+    .auth-logo {
+        font-size: 2em;
+    }
+    
+    .auth-text {
+        font-size: 1em;
+    }
+}

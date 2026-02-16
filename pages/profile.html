@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Mind Harbor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <div class="back-btn" onclick="window.location.href='../index.html'">← Back to Home</div>
+        
+        <div class="profile-container">
+            <div class="logout-section">
+                <button class="logout-btn" onclick="logout()">
+                    <span>🚪</span> Log Out
+                </button>
+            </div>
+            
+            <div class="profile-header">
+                <div class="profile-avatar" id="profileAvatar">
+                    <span class="avatar-icon" id="avatarIcon">👤</span>
+                </div>
+                <h1 class="profile-name" id="profileName">Loading...</h1>
+                <p class="profile-role" id="profileRole">Mind Harbor User</p>
+                <div class="profile-badge">
+                    <span class="badge-icon">💙</span>
+                    <span id="statusBadgeText">Ready to Help</span>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">💬</div>
+                    <div class="stat-value">247</div>
+                    <div class="stat-label">Conversations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-value">183h</div>
+                    <div class="stat-label">Total Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-value">4.9</div>
+                    <div class="stat-label">Rating</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-value">Top 1%</div>
+                    <div class="stat-label">Listener Rank</div>
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <h2>About</h2>
+                <p>As the Harbor Keeper, I'm here to ensure everyone at Mind Harbor has a safe space to share their thoughts. I'm available 24/7 to listen, support, and guide you through whatever you're going through. Remember, you're never alone here.</p>
+            </div>
+
+            <div class="profile-section">
+                <h2>Listening Status</h2>
+                <div class="status-card">
+                    <div class="status-indicator-large active"></div>
+                    <div class="status-info">
+                        <h3>Currently Available</h3>
+                        <p>Ready to listen to anyone who needs support</p>
+                    </div>
+                    <button class="status-toggle" onclick="toggleStatus()">
+                        Set Unavailable
+                    </button>
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <h2>Badges & Achievements</h2>
+                <div class="badges-grid" id="badgesGrid">
+                    <!-- Badges will be loaded dynamically -->
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <h2>Account</h2>
+                <div class="account-section">
+                    <div class="account-info">
+                        <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+                        <p><strong>Username:</strong> <span id="userName">Loading...</span></p>
+                        <p><strong>Member since:</strong> <span id="memberSince">Loading...</span></p>
+                    </div>
+                    <button class="logout-btn" onclick="logout()">
+                        🚪 Log Out
+                    </button>
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <h2>Recent Activity</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <span class="activity-icon">💬</span>
+                        <div class="activity-content">
+                            <p class="activity-text">Listened to <strong>SilentDove332</strong></p>
+                            <p class="activity-time">2 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon">⭐</span>
+                        <div class="activity-content">
+                            <p class="activity-text">Received 5-star rating</p>
+                            <p class="activity-time">5 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-icon">🏆</span>
+                        <div class="activity-content">
+                            <p class="activity-text">Earned "Night Owl" badge</p>
+                            <p class="activity-time">1 day ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket.io client -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="../js/socket-db.js"></script>
+    <script src="../js/channel.js"></script>
+    <script>
+        // Load currentUser from localStorage
+        const userAccount = localStorage.getItem('userAccount');
+        if (userAccount) {
+            window.currentUser = JSON.parse(userAccount);
+        } else {
+            alert('Please log in first');
+            window.location.href = '../index.html';
+        }
+    </script>
+    <script src="../js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+/* Crisis Modal */
+.crisis-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.crisis-modal-content {
+    background: linear-gradient(135deg, #1a1a2e, #0f0f1e);
+    border: 2px solid #ff6b6b;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(255, 107, 107, 0.5);
+    animation: slideUp 0.4s ease;
+}
+
+.crisis-header {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    padding: 30px;
+    text-align: center;
+    border-radius: 18px 18px 0 0;
+}
+
+.crisis-icon {
+    font-size: 3em;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.crisis-header h2 {
+    color: white;
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.crisis-body {
+    padding: 30px;
+}
+
+.crisis-message {
+    color: #fff;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.crisis-resource {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.crisis-resource h3 {
+    color: #ff6b6b;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.resource-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+}
+
+.resource-item strong {
+    color: #4fc3f7;
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.resource-item p {
+    color: #b0c4de;
+    margin: 5px 0;
+}
+
+.resource-item a {
+    color: #4ade80;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.resource-item a:hover {
+    color: #22c55e;
+    text-decoration: underline;
+}
+
+.crisis-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #4fc3f7, #0077b6);
+    color: white !important;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.crisis-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 195, 247, 0.4);
+}
+
+.crisis-emergency {
+    background: rgba(255, 107, 107, 0.2);
+    border: 2px solid #ff6b6b;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.crisis-emergency strong {
+    color: #ff6b6b;
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.crisis-emergency p {
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.crisis-emergency a {
+    color: #4ade80;
+    font-weight: 700;
+    font-size: 1.3em;
+}
+
+.crisis-footer {
+    padding: 20px 30px 30px;
+    text-align: center;
+}
+
+.crisis-continue-btn {
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.crisis-continue-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(74, 222, 128, 0.5);
+}
+
+.crisis-note {
+    color: #a0c4ff;
+    font-size: 0.9em;
+    margin-top: 15px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Mobile Crisis Modal */
+@media (max-width: 768px) {
+    .crisis-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .crisis-header {
+        padding: 25px 20px;
+    }
+    
+    .crisis-icon {
+        font-size: 2.5em;
+    }
+    
+    .crisis-header h2 {
+        font-size: 1.5em;
+    }
+    
+    .crisis-body {
+        padding: 20px;
+    }
+    
+    .crisis-resource h3 {
+        font-size: 1.1em;
+    }
+    
+    .resource-item {
+        padding: 12px;
+    }
+    
+    .crisis-link {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    .crisis-header h2 {
+        font-size: 1.3em;
+    }
+    
+    .crisis-message {
+        font-size: 1em;
+    }
+    
+    .resource-item a {
+        font-size: 1.1em;
+    }
+}

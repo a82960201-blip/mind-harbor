@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Chat - Mind Harbor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/chat.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="chat-container">
+        <div class="chat-header">
+            <button class="back-btn" onclick="window.location.href='../index.html'">←</button>
+            <div class="chat-header-info">
+                <h2 class="chat-partner" id="chatPartner">👥 General Group Chat</h2>
+                <p class="chat-status"><span id="onlineCount">0</span> people online</p>
+            </div>
+        </div>
+
+        <div class="chat-body">
+            <div class="guidelines-banner" id="guidelinesBanner">
+                <div class="banner-content">
+                    <div class="banner-icon">👮</div>
+                    <div class="banner-text">
+                        <strong>Community Cop Guidelines:</strong>
+                        <ul>
+                            <li>Be respectful and kind to everyone</li>
+                            <li>Keep conversations supportive</li>
+                            <li>No personal information sharing</li>
+                            <li>No harassment or hate speech</li>
+                            <li>This is a safe space for everyone</li>
+                        </ul>
+                    </div>
+                    <button class="close-banner" onclick="closeBanner()">×</button>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="system-message">
+                    <span class="system-icon">👥</span>
+                    <p>Welcome to the General Group Chat! Be kind and supportive.</p>
+                </div>
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-text" id="typingText">typing...</span>
+            </div>
+
+            <div class="chat-input-container">
+                <form id="messageForm" class="message-form">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Type your message..." 
+                        rows="1"
+                    ></textarea>
+                    <button type="submit" class="send-btn" id="sendBtn">
+                        <span class="send-icon">➤</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket.io client -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="../js/socket-db.js"></script>
+    <script src="../js/crisis-detection.js"></script>
+    <script>
+        // Load currentUser
+        const userAccount = localStorage.getItem('userAccount');
+        if (userAccount) {
+            window.currentUser = JSON.parse(userAccount);
+        } else {
+            alert('Please log in first');
+            window.location.href = '../index.html';
+        }
+        
+        // Initialize database
+        (async () => {
+            try {
+                await db.init();
+                console.log('Database connected');
+            } catch (error) {
+                console.error('Database connection error:', error);
+            }
+        })();
+    </script>
+    <script src="../js/group-chat.js"></script>
+</body>
+</html>
