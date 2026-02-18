@@ -7,13 +7,67 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#1a1a2e">
     
+    <!-- SEO Meta Tags -->
+    <title>Mind Harbor - Free Anonymous Mental Health Support | Talk to Someone 24/7</title>
+    <meta name="description" content="Free anonymous mental health support platform. Talk to trained listeners 24/7 about depression, anxiety, stress, loneliness, or suicidal thoughts. 100% confidential peer counseling. No judgment, just support.">
+    <meta name="keywords" content="mental health support, anonymous therapy, free counseling, talk to someone, depression help, anxiety support, suicide prevention, peer counseling, emotional support, mental wellness, crisis support, online therapy free, anonymous chat, mental health chat, talk therapy, psychological support, emotional counseling, stress relief, loneliness help, free mental health, 988 lifeline, crisis hotline, student mental health, therapy chat, mental health platform, peer support, confidential counseling, mental health resources, depression chat, anxiety chat, suicide hotline, emotional help, mental health services, free therapy, online counseling, talk anonymously, mental health crisis, wellbeing support, psychological help">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mind-harbor.onrender.com/">
+    <meta property="og:title" content="Mind Harbor - Free Anonymous Mental Health Support">
+    <meta property="og:description" content="Talk to someone right now. Free, anonymous, 24/7 mental health support. Depression, anxiety, stress, loneliness - someone is here to listen.">
+    <meta property="og:image" content="https://mind-harbor.onrender.com/favicon.svg">
+    <meta property="og:site_name" content="Mind Harbor">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mind-harbor.onrender.com/">
+    <meta property="twitter:title" content="Mind Harbor - Free Anonymous Mental Health Support">
+    <meta property="twitter:description" content="Talk to someone right now. Free, anonymous, 24/7 mental health support.">
+    <meta property="twitter:image" content="https://mind-harbor.onrender.com/favicon.svg">
+    
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Mind Harbor">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="General">
+    <meta name="distribution" content="global">
+    <meta name="geo.region" content="NG">
+    <meta name="geo.placename" content="Nigeria">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mind-harbor.onrender.com/">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" type="image/svg+xml" href="favicon-heart.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
     
-    <title>Mind Harbor - In Memory</title>
-    <meta name="description" content="Mind Harbor - Anonymous mental health support built in loving memory. Free, safe, and confidential.">
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "Mind Harbor",
+      "description": "Free anonymous mental health support platform providing 24/7 peer counseling and crisis support",
+      "url": "https://mind-harbor.onrender.com",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Mind Harbor"
+      },
+      "about": {
+        "@type": "MedicalCondition",
+        "name": "Mental Health"
+      },
+      "audience": {
+        "@type": "PeopleAudience",
+        "audienceType": "Students, Adults seeking mental health support"
+      },
+      "specialty": "Mental Health, Peer Counseling, Crisis Support"
+    }
+    </script>
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/auth.css">
@@ -59,54 +113,74 @@
 
     <!-- Main Content (shows after login) -->
     <div class="container" id="mainContent" style="display: none;">
-        <div class="hero">
+        <header class="hero">
             <h1 class="logo">Mind Harbor</h1>
-            <p class="tagline">Your Safe Space for Anonymous Support</p>
+            <h2 class="tagline">Your Safe Space for Anonymous Support</h2>
             <p class="username-display">You are: <span id="currentUsername"></span></p>
             
-            <div class="button-container">
-                <button class="main-btn find-btn" onclick="window.location.href='pages/find-listener.html'">
+            <nav class="button-container" role="navigation" aria-label="Main navigation">
+                <button class="main-btn find-btn" onclick="window.location.href='pages/find-listener.html'" aria-label="Find a mental health listener">
                     <span class="btn-icon">🎧</span>
                     Find a Listener
                 </button>
-                <button class="main-btn be-btn" onclick="window.location.href='pages/be-listener.html'">
+                <button class="main-btn be-btn" onclick="window.location.href='pages/be-listener.html'" aria-label="Become a mental health listener">
                     <span class="btn-icon">💙</span>
                     Be a Listener
                 </button>
-                <button class="main-btn chat-btn" onclick="window.location.href='pages/chat-history.html'">
+                <button class="main-btn chat-btn" onclick="window.location.href='pages/chat-history.html'" aria-label="View your chat history">
                     <span class="btn-icon">💬</span>
                     My Chats
                 </button>
-                <button class="main-btn group-btn" onclick="window.location.href='pages/group-chat.html'">
+                <button class="main-btn group-btn" onclick="window.location.href='pages/group-chat.html'" aria-label="Join group mental health chat">
                     <span class="btn-icon">👥</span>
                     Group Chat
                 </button>
-            </div>
-        </div>
+            </nav>
+        </header>
 
-        <div class="memorial">
+        <article class="memorial">
             <p class="memorial-text">Built in loving memory of a beloved companion who deserved someone to talk to 🐱💙</p>
-        </div>
+        </article>
 
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>100% Anonymous</h3>
+        <section class="features" aria-label="Platform features">
+            <h3 class="sr-only">Why Choose Mind Harbor</h3>
+            <article class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🔒</div>
+                <h4>100% Anonymous</h4>
                 <p>Only your assigned name is visible</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💬</div>
-                <h3>Messages Saved</h3>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon" aria-hidden="true">💬</div>
+                <h4>Messages Saved</h4>
                 <p>Your conversations are preserved</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🤝</div>
-                <h3>Accept/Decline</h3>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🤝</div>
+                <h4>Accept/Decline</h4>
                 <p>You choose who you talk to</p>
-            </div>
-        </div>
+            </article>
+        </section>
 
-        <a href="pages/profile.html" class="profile-link">My Profile</a>
+        <a href="pages/profile.html" class="profile-link" aria-label="View your profile">My Profile</a>
+        
+        <!-- SEO Content (Hidden but crawlable) -->
+        <div class="seo-content" style="position: absolute; left: -9999px;" aria-hidden="true">
+            <h2>Free Anonymous Mental Health Support</h2>
+            <p>Mind Harbor provides free, confidential mental health support through trained peer listeners. Whether you're struggling with depression, anxiety, stress, loneliness, or suicidal thoughts, someone is here to listen 24/7.</p>
+            
+            <h3>Mental Health Support Services</h3>
+            <ul>
+                <li>Anonymous one-on-one counseling</li>
+                <li>Group therapy and support rooms</li>
+                <li>Crisis intervention and suicide prevention</li>
+                <li>Peer support for depression and anxiety</li>
+                <li>Stress management and emotional support</li>
+                <li>Confidential chat with trained listeners</li>
+            </ul>
+            
+            <h3>Why Mind Harbor</h3>
+            <p>Free mental health support, anonymous therapy chat, peer counseling, emotional support, crisis hotline, depression help, anxiety relief, suicide prevention resources, 988 lifeline, confidential counseling, student mental health, mental wellness platform.</p>
+        </div>
     </div>
     
     <!-- Socket.io client -->

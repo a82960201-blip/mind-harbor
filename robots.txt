@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+Allow: /pages/
+Allow: /css/
+Allow: /js/
+
+Disallow: /js/crisis-detection.js
+Disallow: /js/report-system.js
+
+Sitemap: https://mind-harbor.onrender.com/sitemap.xml
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
